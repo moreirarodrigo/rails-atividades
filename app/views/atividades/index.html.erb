@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Atividades</h1>
+
+<%= form_tag(atividades_path, method: :get) do %>
+  <%= label_tag :search_date, "Buscar por data:" %>
+  <%= date_field_tag :search_date, params[:search_date] %>
+  <%= submit_tag "buscar" %>
+<% end %>
+
+<div id="atividades">
+  <% @atividades.each do |atividade| %>
+    <%= render atividade %>
+    <p>
+      <%= link_to "Show this atividade", atividade %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New atividade", new_atividade_path %>
